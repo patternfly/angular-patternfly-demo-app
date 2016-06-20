@@ -37,7 +37,7 @@
                   },
                   {
                      "title":"Hosts",
-                     "href":"#/compute/infrastructure/tenants"
+                     "href":"#/compute/infrastructure/hosts"
                   }
                 ]
             },
@@ -69,28 +69,16 @@
                      "href":"#/compute/containers/routes"
                   },
                   {
-                     "title":"Replicators",
-                     "href":"#/compute/containers/replicators"
-                  },
-                  {
                      "title":"Images",
                      "href":"#/compute/containers/images"
                   },
                   {
-                     "title":"Image Registries",
-                     "href":"#/compute/containers/imagereg"
-                  },
-                  {
                      "title":"Services",
-                     "href":"#/compute/containers/serives"
+                     "href":"#/compute/containers/services"
                   },
                   {
-                     "title":"Containers",
-                     "href":"#/compute/containers/containers"
-                  },
-                  {
-                     "title":"Topology",
-                     "href":"#/compute/containers/topology"
+                     "title":"Builds",
+                     "href":"#/compute/containers/builds"
                   }
                ]
             }

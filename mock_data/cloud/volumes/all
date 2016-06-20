@@ -1,0 +1,44 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "name": "Calypso",
+          "providerName": "Provider 1",
+          "sizeInGB": 60,
+          "status": "Available",
+          "zone": "Nova"
+       },
+       {
+          "uuid": "100002",
+          "name": "Dogfish",
+          "providerName": "Provider 1",
+          "sizeInGB": 120,
+          "status": "Available",
+          "zone": "Nova"
+       },
+       {
+          "uuid": "100003",
+          "name": "Gotham",
+          "providerName": "Provider 1",
+          "sizeInGB": 90,
+          "status": "Available",
+          "zone": "Nova"
+       },
+       {
+          "uuid": "100004",
+          "name": "Nova",
+          "providerName": "Provider 1",
+          "sizeInGB": 40,
+          "status": "Available",
+          "zone": "Nova"
+       },
+       {
+          "uuid": "100005",
+          "name": "Velo",
+          "providerName": "Provider 1",
+          "sizeInGB": 900,
+          "status": "Available",
+          "zone": "Nova"
+       }
+   ]
+}

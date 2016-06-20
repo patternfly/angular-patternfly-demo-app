@@ -1,0 +1,28 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "name": "Admin",
+          "providerName": "Provider 1",
+          "instancesCount": 10
+       },
+       {
+          "uuid": "100002",
+          "name": "Demo",
+          "providerName": "Provider 2",
+          "instancesCount": 9
+       },
+       {
+          "uuid": "100003",
+          "name": "Rdo",
+          "providerName": "Provider 1",
+          "instancesCount": 7
+       },
+       {
+          "uuid": "100004",
+          "name": "Restricted",
+          "providerName": "Provider 2",
+          "instancesCount": 12
+       }
+   ]
+}

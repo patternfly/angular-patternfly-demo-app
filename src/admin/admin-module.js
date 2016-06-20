@@ -1,5 +1,8 @@
 angular.module ('apf.adminModule',
-  ['apf.userAdminModule'])
+  ['apf.userAdminModule',
+   'apf.admin.backupsModule',
+   'apf.admin.automatedTasksModule'
+  ])
   .config(['$routeProvider', function ($routeProvider) {
     'use strict';
     $routeProvider
@@ -22,11 +25,11 @@ angular.module ('apf.adminModule',
         controller: 'userAdmin.rolesController'
       })
       .when('/admin/backups', {
-        templateUrl: 'src/admin/backups.html',
+        templateUrl: 'src/admin/backups/backups.html',
         controller: 'admin.backupsController'
       })
       .when('/admin/automated-tasks', {
-        templateUrl: 'src/admin/automated-tasks.html',
+        templateUrl: 'src/admin/automated-tasks/automated-tasks.html',
         controller: 'admin.automatedTasksController'
       });
   }]);

@@ -2,19 +2,19 @@
   "data":{
     "providers": [
         {
-          "iconImage": "libraries/patternfly/dist/img/Openshift-Logo-Notext.svg",
+          "iconImage": "bower_components/patternfly/dist/img/Openshift-Logo-Notext.svg",
           "count": 1,
           "id": "openshift",
           "providerType": "OpenShift"
         },
         {
-          "iconImage": "libraries/patternfly/dist/img/kubernetes.svg",
+          "iconImage": "bower_components/patternfly/dist/img/kubernetes.svg",
           "count": 1,
           "id":" kubernetes",
           "providerType": "Kubernetes"
         },
         {
-          "iconImage": "libraries/patternfly/dist/img/RH_Atomic-Logo-NoText.svg",
+          "iconImage": "bower_components/patternfly/dist/img/RH_Atomic-Logo-NoText.svg",
           "count": 1,
           "id":" atomic",
           "providerType": "Atomic"

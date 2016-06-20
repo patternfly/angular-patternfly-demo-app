@@ -94,13 +94,10 @@ angular.module('apf.containers.dashboardModule').controller('containers.dashboar
       $scope.dailyNetworkUtilization.dataAvailable = false;
     });
 
-    // Trends
-
     $scope.podTrendConfig = chartConfig.podTrendConfig;
     $scope.podTrendsLoadingDone = false;
-    $resource('mock_data/containers/dashboard/pods').tooltipType = 'valuePerDay';
 
-    podTrends.get(function (response) {
+    $resource('mock_data/containers/dashboard/pods').get(function (response) {
       var data = response.data;
       $scope.podTrends = chartsDataMixin.getSparklineData(data.podTrends, $scope.podTrendConfig.dataName);
       $scope.podTrendsLoadingDone = true;
@@ -113,8 +110,6 @@ angular.module('apf.containers.dashboardModule').controller('containers.dashboar
       $scope.imageTrends = chartsDataMixin.getSparklineData(data.imageTrends, $scope.imageTrendConfig.dataName);
       $scope.imageTrendLoadingDone = true;
     });
-
-    // HeatMaps
 
     $scope.nodeCpuUsage = {
       title: 'CPU',

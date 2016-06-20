@@ -12,6 +12,7 @@ angular.module ('apf.appModule', [
   'apf.navigation',
   'apf.wizard',
   'apf.dashboardModule',
+  'apf.cloudsModule',
   'apf.containersModule',
   'apf.infrastructureModule',
   'apf.applicationsModule',

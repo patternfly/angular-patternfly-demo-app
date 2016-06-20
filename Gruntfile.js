@@ -63,6 +63,13 @@ module.exports = function (grunt) {
           livereload: 37830
         }
       },
+      mockData: {
+        files: ['mock_data/**/*'],
+        tasks: ['copy:mockdata'],
+        options: {
+          livereload: 37830
+        }
+      },
       livereload: {
         options: {
           livereload: 37830

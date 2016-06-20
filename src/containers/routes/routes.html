@@ -1,0 +1,12 @@
+<div class="container-fluid container-cards-pf apf-objects-view">
+  <ol class="breadcrumb" style="margin-bottom: 0px; margin-left:10px;">
+    <li>Compute</li>
+    <li class="active"><a href="#/compute/containers/dashboard">Containers</a></li>
+    <li>Routes</li>
+  </ol>
+  <div pf-toolbar class="row" config="toolbarConfig"></div>
+  <div object-list list-class="routes-list row" list-id="{{listId}}"
+       list-config="listConfig" items="routes" columns="columns"
+       ng-if="routesLoaded">
+  </div>
+</div>
