@@ -1,0 +1,33 @@
+<div ng-controller="containers.deployProviderReviewController">
+  <form class="form-horizontal">
+    <div class="wizard-apf-review-item">
+      <span class="wizard-apf-review-item-label">Configure:</span>
+      <span class="wizard-apf-review-item-value">{{getConfigServerType()}}</span>
+    </div>
+  </form>
+  <div class="wizard-apf-review-item" ng-if="data.configureRouter">
+    <div class="wizard-apf-review-item-label" >Configure Router</div>
+  </div>
+  <div class="wizard-apf-review-item" ng-if="data.serverConfigType != 'none' && data.configureRegistry">
+    <div class="wizard-apf-review-item-label" >Configure Registry</div>
+  </div>
+  <div class="wizard-apf-review-item sub-item" ng-if="data.serverConfigType == 'standardNFS' && data.configureRegistry">
+    <span class="wizard-apf-review-item-label">Server:</span>
+    <span class="wizard-apf-review-item-value">{{data.nfsRegistryServer}}</span>
+  </div>
+  <div class="wizard-apf-review-item sub-item" ng-if="data.serverConfigType == 'standardNFS' && data.configureRegistry">
+    <span class="wizard-apf-review-item-label">Path:</span>
+    <span class="wizard-apf-review-item-value">{{data.nfsRegistryPath}}</span>
+  </div>
+  <div class="wizard-apf-review-item" ng-if="data.serverConfigType != 'none' && data.configureMetrics">
+    <div class="wizard-apf-review-item-label" >Configure Metrics</div>
+  </div>
+  <div class="wizard-apf-review-item sub-item" ng-if="data.serverConfigType == 'standardNFS' && data.configureMetrics">
+    <span class="wizard-apf-review-item-label">Server:</span>
+    <span class="wizard-apf-review-item-value">{{data.nfsMetricsServer}}</span>
+  </div>
+  <div class="wizard-apf-review-item sub-item" ng-if="data.serverConfigType == 'standardNFS' && data.configureMetrics">
+    <span class="wizard-apf-review-item-label">Server:</span>
+    <span class="wizard-apf-review-item-value">{{data.nfsMetricsPath}}</span>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="percentageUsedBarChartWrapper">
+    <div class="percentageUsedBarChart row" ng-repeat="chart in charts">
+        <span class="percentageUsedBarTitle">{{chart.title}}</span>
+        <div class="percentageUsedBar">
+            <div class="percentageUsedBarFilled" ng-class="{'animate': animate}" style="width:{{chart.percentageUsed}}%" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{chart.usedTooltip}}"></div>
+            <div class="percentageUsedBarUnused" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{chart.availableTooltip}}"></div>
+        </div>
+        <span class="percentageUsedBarSuffix">{{chart.start}} of {{chart.end}} {{chart.units}}</span>
+    </div>
+</div>

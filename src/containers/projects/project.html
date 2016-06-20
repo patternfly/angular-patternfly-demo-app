@@ -1,0 +1,91 @@
+<div class="container-fluid container-cards-pf project-dashboard apf-dashboard-view">
+  <ol class="breadcrumb" style="margin-bottom: 0px;">
+    <li class="active"><a href="#/compute/containers/dashboard">Containers</a></li>
+    <li class="active"><a href="#/compute/containers/projects">Projects</a></li>
+    <li>
+      {{ navigaition }}
+    </li>
+  </ol>
+  <div class="row row-tile-pf" >
+    <div class="col-xs-7 col-sm-7 col-md-7 project-objects-status">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-4">
+          <div  pf-aggregate-status-card status="objectStatus.pods" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+          <div  pf-aggregate-status-card status="objectStatus.routes" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+          <div  pf-aggregate-status-card status="objectStatus.images" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+          <div  pf-aggregate-status-card status="objectStatus.containers" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+          <div  pf-aggregate-status-card status="objectStatus.routes" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+          <div  pf-aggregate-status-card status="objectStatus.registries" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+      </div><!-- /row -->
+    </div>
+    <div class="col-xs-5 col-sm-5 col-md-5">
+      <div pf-card head-title="Quotas" show-top-border="true" class="project-quota-card">
+        <div percentage-used charts="quotas"></div>
+      </div>
+    </div>
+  </div><!-- /row -->
+  <div class="row row-tile-pf">
+    <div class="col-xs-7 col-sm-7 col-md-7">
+      <div pf-card head-title="Node Utilization" hidetopborder="true">
+        <div class="row" ng-if="utilizationLoadingDone">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-trend-chart config="cpuUsageConfig" donut-config="cpuUsageDonutConfig" sparkline-config="cpuUsageSparklineConfig" chart-data="cpuUsageData"></div>
+            <span class="trend-footer-pf">Last 30 Days</span>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-trend-chart config="memoryUsageConfig" donut-config="memoryUsageDonutConfig" sparkline-config="memoryUsageSparklineConfig" chart-data="memoryUsageData"></div>
+            <span class="trend-footer-pf">Last 30 Days</span>
+          </div>
+        </div>
+        <div ng-if="!utilizationLoadingDone" class="spinner spinner-lg loading"></div>
+      </div>
+    </div>
+    <div class="col-xs-5 col-sm-5 col-md-5">
+      <div pf-card head-title="{{networkUtilizationCurrentConfig.headTitle}}" show-top-border="{{networkUtilizationCurrentConfig.showTopBorder}}">
+        <div pf-trends-chart config="networkUtilizationCurrentConfig" chart-data="currentNetworkUtilization"
+             ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+        </div>
+      </div>
+      <div pf-card head-title="{{networkUtilizationDailyConfig.headTitle}}" show-top-border="{{networkUtilizationDailyConfig.showTopBorder}}">
+        <div pf-trends-chart config="networkUtilizationDailyConfig" chart-data="dailyNetworkUtilization"
+             ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+        </div>
+      </div>
+      <div ng-if="!networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
+    </div>
+  </div><!-- /row -->
+  <div class="row row-tile-pf row-tile-pf-last">
+    <div class="col-md-7">
+      <div heatmaps-card card-title="Utilization per Node used by Project" hidetopborder="true" chart-data-available="nodeCpuUsage.loadingDone || nodeMemoryUsage.loadingDone"
+           heatmaps="heatmaps" heatmap-chart-height="dashboardHeatmapChartHeight" column-sizing-class="col-xs-8 col-sm-6 col-md-6"
+           heat-map-usage-legend-labels="nodeHeatMapUsageLegendLabels">
+      </div>
+    </div>
+    <div class="col-xs-5 col-sm-4 col-md-5">
+      <div style="width:100%;">
+        <div pf-card head-title="{{podTrendConfig.headTitle}}" show-top-border="{{podTrendConfig.showTopBorder}}">
+          <div pf-trends-chart config="podTrendConfig" chart-data="podTrends"
+               ng-if="podTrendsLoadingDone" chart-height="chartHeight">
+          </div>
+        </div>
+        <div ng-if="!podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
+        <div pf-card head-title="{{imageTrendConfig.headTitle}}" show-top-border="{{imageTrendConfig.showTopBorder}}">
+          <div pf-trends-chart config="imageTrendConfig" chart-data="imageTrends"
+               ng-if="imageTrendLoadingDone" chart-height="chartHeight">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

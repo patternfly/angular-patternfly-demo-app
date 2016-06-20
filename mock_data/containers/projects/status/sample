@@ -1,0 +1,34 @@
+{
+   "data":{
+      "pods" : {
+        "count": 8,
+        "errorCount": 3,
+        "warningCount": 1
+      },
+      "routes" : {
+        "count": 1,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "images" : {
+        "count": 1250,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "containers" : {
+        "count": 180,
+        "errorCount": 0,
+        "warningCount": 1
+      },
+      "services" : {
+        "count": 2,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "registries" : {
+        "count": 25,
+        "errorCount": 0,
+        "warningCount": 0
+      }
+   }
+}

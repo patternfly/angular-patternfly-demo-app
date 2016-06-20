@@ -1,0 +1,236 @@
+{
+  "data": [
+     {
+        "vmName": "VM 001",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 002",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 003",
+        "providerType": "Azure",
+        "cpus": "4",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 004",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 005",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 006",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 007",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 008",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 009",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 010",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 011",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 012",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 013",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 014",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 015",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 016",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 017",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 018",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 019",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 020",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 021",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 022",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 023",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 024",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 025",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 026",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 027",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 028",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "vmName": "VM 029",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     }
+  ]
+}

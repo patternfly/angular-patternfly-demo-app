@@ -1,0 +1,31 @@
+<div ng-controller="containers.deployProviderReviewController">
+  <div class="apf-form-heading">Master configuration</div>
+  <form class="wizard-apf-review-subform">
+  </form>
+  <form class="wizard-apf-review-subform">
+    <div class="wizard-apf-review-item">
+      <span class="wizard-apf-review-item-label">Masters Base Name:</span>
+      <span class="wizard-apf-review-item-value">{{data.createMasterBaseName}}</span>
+    </div>
+    <div class="wizard-apf-review-item">
+      <span class="wizard-apf-review-item-label">Template:</span>
+      <span class="wizard-apf-review-item-value">{{getMasterCreationTemplate()}}</span>
+    </div>
+  </form>
+  <div class="apf-form-heading">Node configuration</div>
+  <form class="wizard-apf-review-subform">
+    <div class="wizard-apf-review-item">
+      <span class="wizard-apf-review-item-label">Nodes Base Name:</span>
+      <span class="wizard-apf-review-item-value">{{data.createNodesBaseName}}</span>
+    </div>
+    <div class="checkbox" ng-if="data.createNodesLikeMasters">
+      <label class="apf-checkbox-input-label apf-checkbox-input-label-lg">
+        <input type="checkbox" ng-model="data.createNodesLikeMasters"/>Same as Master configuration
+      </label>
+    </div>
+    <div class="wizard-apf-review-item" ng-if="!data.createNodesLikeMasters">
+      <span class="wizard-apf-review-item-label">Template:</span>
+      <span class="wizard-apf-review-item-value">{{getNodeCreationTemplate()}}</span>
+    </div>
+  </form>
+</div>

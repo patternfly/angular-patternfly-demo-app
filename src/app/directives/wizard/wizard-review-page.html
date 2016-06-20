@@ -1,0 +1,24 @@
+<div class="wizard-apf-review-page">
+  <div class="wizard-apf-review-steps">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="reviewStep in reviewSteps track by $index">
+        <a class="apf-form-collapse" ng-class="{'collapsed': !reviewStep.showReviewDetails}" ng-click="toggleShowReviewDetails(reviewStep)">
+          {{reviewStep.stepTitle}}
+        </a>
+        <div class="wizard-apf-review-substeps" ng-class="{'collapse': !reviewStep.showReviewDetails}">
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="substep in reviewStep.getReviewSteps()">
+              <a class="apf-form-collapse" ng-class="{'collapsed': !substep.showReviewDetails}" ng-click="toggleShowReviewDetails(substep)">
+                <span class="wizard-apf-substep-number">{{getSubStepNumber(reviewStep, substep)}}</span>
+                <span class="wizard-apf-substep-title">{{substep.stepTitle}}</span>
+              </a>
+              <div class="wizard-apf-review-content" ng-class="{'collapse': !substep.showReviewDetails}">
+                <div ng-include="substep.reviewTemplate"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

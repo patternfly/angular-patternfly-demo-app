@@ -1,0 +1,72 @@
+<div class="container-fluid container-cards-pf container-cards-pf containers-dashboard apf-dashboard-view">
+  <div class="row row-cards-pf" >
+    <div class="col-xs-6 col-sm-4 col-md-2">
+      <div pf-aggregate-status-card status="objectStatus.providers" show-top-border="true" layout="tall"></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-10">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.nodes" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.containers" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.registries" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.projects" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.pods" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.services" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.images" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div  pf-aggregate-status-card status="objectStatus.routes" url="navigation" show-top-border="true" layout="mini"></div>
+        </div>
+      </div><!-- /row -->
+    </div>
+  </div><!-- /row -->
+  <div class="row row-cards-pf" >
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div pf-card head-title="Node Utilization" hidetopborder="true">
+        <div class="row multi-chart-body" ng-if="utilizationLoadingDone">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-trend-chart config="cpuUsageConfig" donut-config="cpuUsageDonutConfig" sparkline-config="cpuUsageSparklineConfig" chart-data="cpuUsageData"></div>
+            <span class="trend-footer-pf" ng-class="{'chart-transparent-text' : cpuUsageData.dataAvailable === false}">Last 30 Days</span>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-trend-chart config="memoryUsageConfig" donut-config="memoryUsageDonutConfig" sparkline-config="memoryUsageSparklineConfig" chart-data="memoryUsageData"></div>
+            <span class="trend-footer-pf" ng-class="{'chart-transparent-text' : (memoryUsageData.dataAvailable === false)}">Last 30 Days</span>
+          </div>
+        </div>
+        <div ng-if="!utilizationLoadingDone" class="spinner spinner-lg loading"></div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div heatmaps-card card-title="Node Utilization" hidetopborder="true"  chart-data-available="nodeCpuUsage.loadingDone || nodeMemoryUsage.loadingDone"
+           heatmaps="heatmaps" heatmap-chart-height="dashboardHeatmapChartHeight" column-sizing-class="col-xs-8 col-sm-6 col-md-6"
+           heat-map-usage-legend-labels="nodeHeatMapUsageLegendLabels">
+      </div>
+    </div>
+  </div><!-- /row -->
+  <div class="row row-cards-pf row-cards-pf-last">
+    <div class="col-md-6">
+      <div pf-card head-title="{{networkUtilizationCurrentConfig.headTitle}}">
+        <div pf-trends-chart config="networkUtilizationCurrentConfig" chart-data="currentNetworkUtilization" chart-height="chartHeight">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div pf-card head-title="{{networkUtilizationDailyConfig.headTitle}}">
+        <div pf-trends-chart config="networkUtilizationDailyConfig" chart-data="dailyNetworkUtilization" chart-height="chartHeight">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

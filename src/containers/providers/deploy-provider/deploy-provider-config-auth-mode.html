@@ -1,0 +1,27 @@
+<div apf-wizard-substep step-title="Authentication Type" step-id="config-auth-mode" step-priority="0"
+     review-template="/containers/providers/deploy-provider/deploy-provider-auth-mode-review.html">
+  <div class="apf-form-heading">Select authenticaton type</div>
+  <form class="form-horizontal">
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="all"/>Allow All
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="htPassword"/>HTPassword
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="ldap"/>LDAP
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="requestHeader"/>Request Header
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="openId"/>OpenID Connect
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="google"/>Google
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="github"/>GitHub
+    </label>
+  </form>
+</div>

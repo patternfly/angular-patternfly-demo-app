@@ -1,0 +1,31 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "name": "Container 1",
+          "uptime": "02:36:44",
+          "milliCoresUsed": 11,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 176,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100002",
+          "name": "Container 2",
+          "uptime": "12:21:18",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 8,
+          "memoryUsed" : 128,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100003",
+          "name": "Container 3",
+          "uptime": "09:16:23",
+          "milliCoresUsed": 14,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 542,
+          "memoryTotal" : 1024
+       }
+   ]
+}

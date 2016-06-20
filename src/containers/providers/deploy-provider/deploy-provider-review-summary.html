@@ -1,0 +1,25 @@
+<div ng-controller="containers.deployProviderReviewSummaryController">
+  <div apf-wizard-substep step-title="Summary" step-id="review-summary" step-priority="0" on-show="onShow"
+       next-enabled="!inventoryChanged" prev-enabled="!inventoryChanged" ok-to-nav-away="!inventoryChanged"
+       next-tooltip="navTooltip" prev-tooltip="navTooltip" wz-disabled="false">
+    <div apf-wizard-review-page shown="pageShown" wizard-data="data"></div>
+    <div class="wizard-apf-review-steps">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a class="apf-form-collapse" ng-class="{'collapsed': !showAdvancedSettings}" ng-click="toggleAdvancedSettings()">
+            Advanced Settings
+          </a>
+          <div class="wizard-apf-review-content" ng-class="{'collapse': !showAdvancedSettings}">
+            <form>
+              <textarea readonly class="apf-review-edit-text" rows="10" type="text" ng-model="data.editedInventoryText" ng-change="onInventoryTextChange()"></textarea>
+              <!--<div class="modal-footer apf-review-button-panel">-->
+                <!--<button class="btn btn-default" ng-disabled="!playbookChanged" ng-click="cancelPlaybookChanges()">Cancel</button>-->
+                <!--<button class="btn btn-primary" ng-disabled="!playbookChanged" ng-click="savePlaybookChanges()">Save</button>-->
+              <!--</div>-->
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

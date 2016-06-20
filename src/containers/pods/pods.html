@@ -1,0 +1,44 @@
+<div class="container-fluid container-cards-pf apf-objects-view">
+  <ol class="breadcrumb" style="margin-bottom: 0px; margin-left:10px;">
+    <li class="active"><a href="#/compute/containers/dashboard">Containers</a></li>
+    <li>Pods</li>
+  </ol>
+  <div pf-toolbar class="row" config="toolbarConfig"></div>
+  <div object-list list-class="pods-list row" list-id="{{listId}}"
+       list-config="listConfig" items="pods" columns="columns"
+       ng-if="podsLoaded && podsViewType == 'listView'">
+  </div>
+  <div pf-card-view id="{{listId}}" class="pods-cards" config="listConfig" items="pods" ng-if="podsLoaded && podsViewType == 'cardView'">
+    <div class="card-title">
+      <span class="pficon fa fa-cubes container-font-color apf-icon-label"></span>
+      <span class="apf-icon-label">{{item.name}}</span>
+    </div>
+    <div class="row card-row">
+      <div class="col-md-12">
+        <div pf-utilization-bar-chart chart-data="item.cpuUsageData" chart-title="item.cpuTitle" layout="item.layoutInline" units="item.cpuUnits" threshold-error="85" threshold-warning="60"></div>
+        <div pf-utilization-bar-chart chart-data="item.memoryUsageData" chart-title="item.memoryTitle" layout="item.layoutInline" units="item.memoryUnits" threshold-error="85" threshold-warning="60"></div>
+      </div>
+    </div>
+    <div class="row card-row">
+      <div class="card-column">
+        <div class="status-object">
+          <span class="pficon fa fa-cube  container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.containersCount}}</span>
+          <span class="status-text">Containers</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon pficon-image container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.imagesCount}}</span>
+          <span class="status-text">Images</span>
+        </div>
+      </div>
+      <div class="card-column">
+        <div class="status-object">
+          <span class="pficon pficon-service container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.servicesCount}}</span>
+          <span class="status-text">Services</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

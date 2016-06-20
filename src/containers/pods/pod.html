@@ -1,0 +1,112 @@
+<div class="container-fluid container-cards-pf pod-dashboard apf-dashboard-view">
+  <ol class="breadcrumb" style="margin-bottom: 0px;">
+    <li class="active"><a href="#/compute/containers/dashboard">Containers</a></li>
+    <li class="active"><a href="#/compute/containers/pods">Pods</a></li>
+    <li>
+      {{ navigation }}
+    </li>
+  </ol>
+  <div class="row row-tile-pf">
+    <div class="col-xs-12 col-sm-7 col-md-7">
+      <div class="row">
+        <div class="col-md-12 pods-containers-info">
+          <div class="row">
+            <div>
+              <div class="col-xs-6 col-md-4">
+                <div  pf-aggregate-status-card status="containersStatus" show-top-border="true" layout="mini"></div>
+              </div>
+              <div class="col-xs-6 col-md-4">
+                <div  pf-aggregate-status-card status="imagesStatus" show-top-border="true" layout="mini"></div>
+              </div>
+              <div class="col-xs-6 col-md-4">
+                <div  pf-aggregate-status-card status="servicesStatus" show-top-border="true" layout="mini"></div>
+              </div>
+            </div>
+          </div><!-- /row -->
+        </div>
+        <div class="col-xs-12 col-md-12 pods-containers-info">
+          <div pf-card head-title="Containers">
+            <div class="containers-list">
+              <div pf-toolbar config="toolbarConfig"></div>
+              <div class="list-view-container">
+                <div pf-data-list class="pods-list" id="{{listId}}" config="listConfig" items="containers" ng-if="containersLoaded">
+                  <div class="row">
+                    <div class="apf-column name-column">
+                      <span class="apf-label apf-title">{{item.name}}</span>
+                    </div>
+                    <div class="apf-column uptime-column">
+                      <span class="apf-label apf-title">Uptime</span>
+                      <span class="apf-label">{{item.uptime}}</span>
+                    </div>
+                    <div class="apf-column cpu-usage-column">
+                      <div>
+                        <span class="apf-label apf-title">CPU Used (mc)</span>
+                        <span class="apf-label apf-value">{{item.milliCoresUsed}}</span>
+                        <span class="apf-label">of {{item.milliCoresTotal}}</span>
+                      </div>
+                    </div>
+                    <div class="apf-column memory-usage-column">
+                      <div>
+                        <span class="apf-label apf-title">Memory Used (MB)</span>
+                        <span class="apf-label apf-value">{{item.memoryUsed}}</span>
+                        <span class="apf-label">of {{item.memoryTotal}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col-xs-12 col-md-5">
+        <div pf-card head-title="Pod Metrics" hidetopborder="true">
+          <div class="row pod-metrics">
+            <div class="metric-col">
+              <div class="metric-row row" ng-repeat="metric in leftMetrics">
+                <span class="metric-title">{{metric.title}}</span>
+                <span class="metric-value">{{metric.value}}</span>
+              </div>
+            </div>
+            <div class="metric-col">
+              <div class="metric-row row" ng-repeat="metric in rightMetrics">
+                <span class="metric-title">{{metric.title}}</span>
+                <span class="metric-value">{{metric.value}}</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-tile-pf">
+    <div class="col-xs-12 col-sm-7 col-md-7">
+      <div pf-card head-title="Node Utilization" hidetopborder="true">
+        <div class="row" ng-if="utilizationLoadingDone">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-trend-chart config="cpuUsageConfig" donut-config="cpuUsageDonutConfig" sparkline-config="cpuUsageSparklineConfig" chart-data="cpuUsageData"></div>
+            <span class="trend-footer-pf">Last 24 Hours</span>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-trend-chart config="memoryUsageConfig" donut-config="memoryUsageDonutConfig" sparkline-config="memoryUsageSparklineConfig" chart-data="memoryUsageData"></div>
+            <span class="trend-footer-pf">Last 24 Hours</span>
+          </div>
+        </div>
+        <div ng-if="!utilizationLoadingDone" class="spinner spinner-lg loading"></div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-5">
+      <div pf-card head-title="{{networkUtilizationCurrentConfig.headTitle}}" show-top-border="{{networkUtilizationCurrentConfig.showTopBorder}}">
+        <div pf-trends-chart config="networkUtilizationCurrentConfig" chart-data="currentNetworkUtilization"
+             ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+        </div>
+      </div>
+      <div pf-card head-title="{{networkUtilizationDailyConfig.headTitle}}" show-top-border="{{networkUtilizationDailyConfig.showTopBorder}}">
+        <div pf-trends-chart config="networkUtilizationDailyConfig" chart-data="dailyNetworkUtilization"
+             ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+        </div>
+      </div>
+      <div ng-if="!networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
+    </div>
+  </div>
+</div>

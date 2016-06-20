@@ -1,0 +1,111 @@
+<!doctype html>
+<html ng-app="apf.appModule" class="layout-pf layout-pf-fixed transitions">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>ManageIQ</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link rel="shortcut icon" href="favicon.ico?v=1"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+     <!-- build:css styles/css/bower_components.css -->
+    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.min.css"/>
+    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.min.css"/>
+    <link rel="stylesheet" href="bower_components/angular-patternfly/dist/styles/angular-patternfly.css">
+    <!-- endbuild -->
+
+    <!-- build:css styles/css/app.css -->
+    <link rel="stylesheet" href="styles/app.css"/>
+    <!-- endbuild -->
+
+</head>
+<body id="pf-app" class="pf-body apf-body ng-cloak">
+  <div apf-vertical-navigation items="navigationItems" brand-src="styles/images/unified-management-experience.svg" brand-alt="Unified Management Experience" ng-controller="apf.appController">
+    <div ng-controller="apf.navBarController">
+      <ul class="nav navbar-nav">
+        <li><a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right navbar-iconic">
+        <li class="dropdown">
+          <a class="nav-item-iconic" id="notifications" ng-click="toggleNotificationDrawer()">
+            <span title="Notifications" class="fa" ng-class="{'fa-bell': newNotifications === true, 'fa-bell-o': newNotifications === false}"></span>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span title="Help" class="fa pficon-help"></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span title="Username" class="fa pficon-user"></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><a href="#">Preferences</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div ng-controller="apf.notificationsController" ng-class="{'apf-notification-drawer-expanded': customScope.drawerExpanded}">
+      <div class="apf-notificaton-list" data-ng-show="toastNotifications.length > 0">
+        <div ng-repeat="notification in toastNotifications">
+          <div apf-toast-notification notification="notification"
+               notification-index="$index"
+               handle-enter="handleEnter(notification)" handle-leave="handleLeave(notification)">
+          </div>
+        </div>
+      </div>
+      <div pf-notification-drawer drawer-hidden="hideDrawer" notification-groups="groups"
+           title-include="{{titleHtml}}" heading-include="{{headingHTML}}" subheading-include="{{subHeadingHTML}}"
+           notification-body-include="{{notificationHTML}}" notification-footer-include="{{notificationFooterHTML}}"
+           custom-scope="customScope">
+      </div>
+    </div>
+  </div>
+
+  <div id="centralPanel" class="container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-tertiary">
+    <div class="pf-framework-content">
+        <main ng-view class="pf-framework-view"></main>
+    </div>
+  </div>
+
+  <!-- build:js js/bower_components.js -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap-select/js/bootstrap-select.js"></script>
+  <script src="bower_components/moment/min/moment.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="bower_components/patternfly/dist/js/patternfly.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+  <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/c3/c3.js"></script>
+  <script src="bower_components/angular-patternfly/dist/angular-patternfly.js"></script>
+  <script src="bower_components/lodash/lodash.min.js"></script>
+  <!-- endbuild -->
+
+
+
+  <!-- angular -->
+  <!-- endangular -->
+
+
+
+
+</body>
+</html>

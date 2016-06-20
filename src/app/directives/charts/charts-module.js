@@ -1,0 +1,1 @@
+angular.module( 'apf.charts', []);

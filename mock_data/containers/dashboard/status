@@ -1,0 +1,64 @@
+{
+  "data":{
+    "providers": [
+        {
+          "iconImage": "libraries/patternfly/dist/img/Openshift-Logo-Notext.svg",
+          "count": 1,
+          "id": "openshift",
+          "providerType": "OpenShift"
+        },
+        {
+          "iconImage": "libraries/patternfly/dist/img/kubernetes.svg",
+          "count": 1,
+          "id":" kubernetes",
+          "providerType": "Kubernetes"
+        },
+        {
+          "iconImage": "libraries/patternfly/dist/img/RH_Atomic-Logo-NoText.svg",
+          "count": 1,
+          "id":" atomic",
+          "providerType": "Atomic"
+        }
+    ],
+    "nodes" : {
+      "count": 52,
+      "errorCount": 3,
+      "warningCount": 0
+    },
+    "pods" : {
+      "count": 1200,
+      "errorCount": 3,
+      "warningCount": 0
+    },
+    "containers" : {
+      "count": 300,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "registries" : {
+      "count": 4,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "projects" : {
+      "count": 510,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "services" : {
+      "count": 2500,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "images" : {
+      "count": 2500,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "routes" : {
+      "count": 300,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  }
+}

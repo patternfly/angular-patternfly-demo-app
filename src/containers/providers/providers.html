@@ -1,0 +1,69 @@
+<div class="container-fluid container-cards-pf apf-objects-view">
+  <ol class="breadcrumb" style="margin-bottom: 0px;">
+    <li class="active"><a href="#/compute/containers/dashboard">Containers</a></li>
+    <li>Providers</li>
+  </ol>
+  <div pf-toolbar="" class="row" config="toolbarConfig"></div>
+  <div object-list list-class="providers-list row" list-id="{{listId}}"
+       list-config="listConfig" items="providers" columns="columns"
+       ng-if="providersLoaded && providersViewType == 'listView'">
+  </div>
+  <div pf-card-view id="{{listId}}" class="providers-cards" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'cardView'">
+    <div class="card-title">
+      <img class="apf-card-title-img" ng-src="{{item.providerImg}}" alt="" />
+      <span class="apf-icon-label">{{item.name}}</span>
+    </div>
+    <div class="row card-row">
+      <div class="col-md-12">
+        <div pf-utilization-bar-chart chart-data="item.cpuUsageData" chart-title="item.cpuTitle" layout="item.layoutInline" units="item.cpuUnits" threshold-error="85" threshold-warning="60"></div>
+        <div pf-utilization-bar-chart chart-data="item.memoryUsageData" chart-title="item.memoryTitle" layout="item.layoutInline" units="item.memoryUnits" threshold-error="85" threshold-warning="60"></div>
+      </div>
+    </div>
+    <div class="row card-row">
+      <div class="card-column">
+        <div class="status-object">
+          <span class="pficon {{item.nodesInfo.iconClass}} container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.nodesInfo.count}}</span>
+          <span class="status-text">{{item.nodesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.containersInfo.iconClass}} container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.containersInfo.count}}</span>
+          <span class="status-text">{{item.containersInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.registriesInfo.iconClass}} container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.registriesInfo.count}}</span>
+          <span class="status-text">{{item.registriesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.projectsInfo.iconClass}} container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.projectsInfo.count}}</span>
+          <span class="status-text">{{item.projectsInfo.name}}</span>
+        </div>
+      </div>
+      <div class="card-column">
+        <div class="status-object">
+          <span class="pficon {{item.podsInfo.iconClass}}  container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.podsInfo.count}}</span>
+          <span class="status-text">{{item.podsInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.servicesInfo.iconClass}} container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.servicesInfo.count}}</span>
+          <span class="status-text">{{item.servicesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.imagesInfo.iconClass}} container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.imagesInfo.count}}</span>
+          <span class="status-text">{{item.imagesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.routesInfo.iconClass}} container-font-color apf-icon-label"></span>
+          <span class="status-count">{{item.routesInfo.count}}</span>
+          <span class="status-text">{{item.routesInfo.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
