@@ -16,6 +16,7 @@ angular.module ('apf.appModule', [
   'apf.containersModule',
   'apf.infrastructureModule',
   'apf.applicationsModule',
+  'apf.reportsModule',
   'apf.adminModule'
 ]).config(['$routeProvider', '$translateProvider',
   function ($routeProvider, $translateProvider) {

@@ -90,6 +90,11 @@
          "href":"#/applications"
       },
       {
+         "title":"Reports",
+         "iconClass": "fa fa-files-o",
+         "href":"#/reports"
+      },
+      {
          "title":"Admin",
          "iconClass": "pficon pficon-settings",
          "children": [
