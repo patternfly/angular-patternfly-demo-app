@@ -80,9 +80,11 @@ angular.module('apf.navigation').directive('apfVerticalNavigation', ['$location'
         var updateMobileMenu = function (selected, secondaryItem) {
           $scope.items.forEach(function (item) {
             item.isMobileItem = false;
-            $scope.items.forEach(function (secondaryItem) {
-              secondaryItem.isMobileItem = false;
-            });
+            if (item.children) {
+              item.children.forEach(function (secondaryItem) {
+                secondaryItem.isMobileItem = false;
+              });
+            }
           });
 
           if (selected) {
