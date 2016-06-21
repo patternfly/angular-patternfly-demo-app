@@ -9,6 +9,7 @@
 .idea/*
 *.iml
 *.DS_Store
+*.swp
 
 node_modules
 bower_components

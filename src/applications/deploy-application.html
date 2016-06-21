@@ -1,0 +1,22 @@
+<div class="apf-modal apf-add-host-dialog">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="cancelDeployDialog()" aria-hidden="true">
+      <span class="pficon pficon-close"></span>
+    </button>
+    <h4 class="modal-title">Deploy Application</h4>
+  </div>
+  <div class="modal-body">
+    <div class="apf-add-dialog-content">
+      <div class="apf-page-text">Enter the name of the application</div>
+      <form>
+        <div pf-form-group pf-label="Application Name" required pf-label-class="apf-input-label-class apf-input-label-class-lg" pf-input-class="apf-input-class">
+          <input id="new_application-name" ng-model="newApplication.name" type="text" required/>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="cancelDeployDialog()">Cancel</button>
+    <button type="button" class="btn btn-primary" ng-click="saveDeployDialog()" ng-class="{disabled: !newApplication.name || newApplication.name.length === 0} ">Deploy</button>
+  </div>
+</div>

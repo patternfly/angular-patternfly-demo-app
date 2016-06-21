@@ -1,6 +1,6 @@
 angular.module('apf.applicationsModule').controller('applicationsController',
-  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ListUtils', 'pfViewUtils',
-  function ($rootScope, $scope, $resource, $location, chartsDataMixin, listUtils, pfViewUtils) {
+  ['$rootScope', '$scope', '$resource', '$location', 'ListUtils', '$document', 'apf.notificationService', '$modal', '$timeout',
+  function ($rootScope, $scope, $resource, $location, listUtils, $document, notificationService, $modal, $timeout) {
     'use strict';
 
     var matchesFilter = function (item, filter) {
@@ -89,6 +89,60 @@ angular.module('apf.applicationsModule').controller('applicationsController',
         groupsSort
       ],
       onSortChange: sortChange
+    };
+
+    $scope.deployApplication = function () {
+      var modalInstance = $modal.open({
+        animation: true,
+        backdrop: 'static',
+        templateUrl: 'src/applications/deploy-application.html',
+        controller: 'deployApplicationController',
+        size: 'md'
+      });
+
+      modalInstance.rendered.then(function () {
+        $document[0].getElementById('new_application-name').focus();
+      });
+
+      modalInstance.result.then(function () {
+      }, function (newApplication) {
+        var notificationData = {
+          id: Math.floor((Math.random() * 100000) + 1),
+          status: 'info',
+          message: "New application deployment '" + newApplication.name + "' is in progress.",
+          inProgress: true,
+          percentComplete: 0,
+          startTime: (new Date()).getTime(),
+          endTime: undefined
+        };
+
+        var count = 0;
+        var updateProgress = function () {
+          var showToast = false;
+
+          count++;
+          if (count < 10) {
+            notificationData.percentComplete = count * 10;
+          } else {
+            notificationData.status = 'success';
+            notificationData.message = "New application '" + newApplication.name + "' deployed successfully.";
+            notificationData.inProgress = false;
+            notificationData.percentComplete = 100;
+            notificationData.endTime = (new Date()).getTime();
+            showToast = true;
+          }
+
+          notificationService.updateNotification('task', notificationData.status, notificationData.message, notificationData, notificationData.id, showToast);
+
+          if (count < 10) {
+            $timeout(updateProgress, 10000);
+          }
+        };
+        notificationService.addNotification('task', notificationData.status, notificationData.message, notificationData, notificationData.id);
+        $timeout(updateProgress, 10000);
+      }, function (reason) {
+      });
+
     };
 
     $scope.toolbarConfig = {
