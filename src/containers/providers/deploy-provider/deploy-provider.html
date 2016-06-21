@@ -9,19 +9,19 @@
     <div apf-wizard class="apf-deploy-provider-wizard" wizard-ready="deployProviderReady" on-finish="finishedWizard()" on-cancel="cancelDeploymentWizard()" content-height="455px" next-title="nextButtonTitle"
          next-callback="nextCallback" back-callback="backCallback" wizard-done="deployComplete || deployInProgress">
       <div apf-wizard-step step-title="Deployment Details" substeps="true" step-id="details" step-priority="0" show-review="true" show-review-details="true">
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-details-general.html'"></div>
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-details-create-vms.html'"></div>
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-masters-nodes.html'"></div>
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-details-cdn-channel.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-details-general.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-details-create-vms.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-masters-nodes.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-details-cdn-channel.html'"></div>
       </div>
       <div apf-wizard-step step-title="Configuration" substeps="true" step-id="configuration" step-priority="1"  show-review="true">
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-config-auth-mode.html'"></div>
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-config-auth-settings.html'"></div>
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-config-settings.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-config-auth-mode.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-config-auth-settings.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-config-settings.html'"></div>
       </div>
       <div apf-wizard-step step-title="Review" substeps="true" step-id="review" step-priority="2">
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-review-summary.html'"></div>
-        <div ng-include="'containers/providers/deploy-provider/deploy-provider-review-progress.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-review-summary.html'"></div>
+        <div ng-include="'src/containers/providers/deploy-provider/deploy-provider-review-progress.html'"></div>
       </div>
     </div>
   </div>

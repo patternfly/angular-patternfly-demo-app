@@ -8,17 +8,17 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
     var modalOptions = {
       animation: true,
       backdrop: 'static',
-      templateUrl: 'containers/providers/deploy-provider/wait-dialog.html',
+      templateUrl: 'src/containers/providers/deploy-provider/wait-dialog.html',
       scope: $scope,
       size: 'sm'
     };
-
-    var modalInstance = $modal.open(modalOptions);
 
     $scope.data.editedInventoryText = '';
     $scope.navTooltip = "";
 
     $scope.onShow = function () {
+      var modalInstance;
+
       if (firstShow) {
         firstShow = false;
         $scope.data.inventoryText = "";
@@ -30,7 +30,8 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
 
       $scope.waitText = 'Loading summary..';
 
-        // Simulate retrieving inventory text
+      // Simulate retrieving inventory text
+      modalInstance = $modal.open(modalOptions);
       $timeout(function () {
         $scope.data.inventoryText = "Text of the Inventory goes here";
         $scope.data.editedInventoryText = $scope.data.inventoryText;

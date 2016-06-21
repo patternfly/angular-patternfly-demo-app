@@ -28,14 +28,14 @@ angular.module('apf.appModule').controller( 'apf.notificationsController', ['$sc
       drawerExpanded: false,
       getNotficationStatusIconClass: function (notification) {
         var retClass = '';
-        if (notification && notification.status) {
-          if (notification.status === 'info') {
+        if (notification && notification.data && notification.data.status) {
+          if (notification.data.status === 'info') {
             retClass = "pficon pficon-info";
-          } else if (notification.status === 'error') {
+          } else if (notification.data.status === 'error') {
             retClass = "pficon pficon-error-circle-o";
-          } else if (notification.status === 'warning') {
+          } else if (notification.data.status === 'warning') {
             retClass = "pficon pficon-warning-triangle-o";
-          } else if (notification.status === 'success') {
+          } else if (notification.data.status === 'success') {
             retClass = "pficon pficon-ok";
           }
         }

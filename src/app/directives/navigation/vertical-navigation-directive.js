@@ -167,40 +167,6 @@ angular.module('apf.navigation').directive('apfVerticalNavigation', ['$location'
           }, 500);
         };
 
-        var clearHoverStates = function () {
-          $scope.hoverSecondaryNav = false;
-          $scope.hoverTertiaryNav = false;
-          $scope.items.forEach(function (item) {
-            item.isHover = false;
-            if (item.navHoverTimeout !== undefined) {
-              $timeout.cancel(item.navHoverTimeout);
-              item.navHoverTimeout = undefined;
-            }
-            if (item.navUnHoverTimeout !== undefined) {
-              $timeout.cancel(item.navUnHoverTimeout);
-              item.navUnHoverTimeout = undefined;
-            }
-            if (item.children && item.children.length > 0) {
-              item.children.forEach(function (secondaryItem) {
-                if (secondaryItem.isHover) {
-                  secondaryItem.isHover = false;
-                }
-                if (secondaryItem.navHoverTimeout !== undefined) {
-                  $timeout.cancel(secondaryItem.navHoverTimeout);
-                  secondaryItem.navHoverTimeout = undefined;
-                }
-                if (secondaryItem.navUnHoverTimeout !== undefined) {
-                  $timeout.cancel(secondaryItem.navUnHoverTimeout);
-                  secondaryItem.navUnHoverTimeout = undefined;
-                }
-              });
-            }
-          });
-          if (!$scope.collapsedSecondaryNav && !$scope.collapsedTertiaryNav) {
-            forceHideSecondaryMenu();
-          }
-        };
-
         var navigateToItem = function (item) {
           var navTo = item.href;
           if (!item.children || item.children.length < 1) {
@@ -334,8 +300,6 @@ angular.module('apf.navigation').directive('apfVerticalNavigation', ['$location'
             } else {
               updateMobileMenu();
             }
-          } else if (!item.children || item.children.length < 1) {
-            clearHoverStates();
           }
 
           navigateToItem(item);
@@ -348,8 +312,6 @@ angular.module('apf.navigation').directive('apfVerticalNavigation', ['$location'
             } else {
               updateMobileMenu();
             }
-          } else if (!secondary.children || secondary.children.length < 1) {
-            clearHoverStates();
           }
 
           navigateToItem(secondary);
@@ -359,8 +321,6 @@ angular.module('apf.navigation').directive('apfVerticalNavigation', ['$location'
           if ($scope.inMobileState) {
             updateMobileMenu();
           }
-
-          clearHoverStates();
 
           navigateToItem(tertiary);
         };

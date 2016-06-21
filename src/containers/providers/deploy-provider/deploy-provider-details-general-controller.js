@@ -5,7 +5,7 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
 
     var firstShow = true;
 
-    $scope.reviewTemplate = "/containers/providers/deploy-provider/deploy-provider-details-general-review.html";
+    $scope.reviewTemplate = "src/containers/providers/deploy-provider/deploy-provider-details-general-review.html";
 
     $scope.onShow = function () {
       if (firstShow) {

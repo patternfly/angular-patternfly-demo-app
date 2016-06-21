@@ -9,7 +9,7 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
       return angular.isDefined(value) && value.length > 0;
     };
 
-    $scope.reviewTemplate = "/containers/providers/deploy-provider/deploy-provider-master-nodes-review-create-vms.html";
+    $scope.reviewTemplate = "src/containers/providers/deploy-provider/deploy-provider-master-nodes-review-create-vms.html";
 
     $scope.onShow = function () {
       if (firstShow) {

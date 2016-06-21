@@ -3,13 +3,6 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
     'use strict';
 
     var $this = this;
-    var notificationHeadingMap = {
-      'system': 'System Notification',
-      'user': 'User Notification',
-      'other': 'Other Notification',
-      'custom': 'Custom Notification',
-      'more': 'More Notification'
-    };
 
     var currentTime = (new Date()).getTime();
 
@@ -40,72 +33,103 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
       }
     };
 
-    this.notificationGroups = [
-      {
-        notificationType: 'task',
-        heading: "Tasks",
-        unreadCount: 0,
-        notifications: [
-          {
-            unread: false,
+    this.tasks = {
+      notificationType: 'task',
+      heading: "Tasks",
+      unreadCount: 0,
+      notifications: [
+        {
+          id: 1001,
+          unread: true,
+          notificationType: 'task',
+          data: {
             message: 'Deployment "OSE Deploy" was canceled',
             status: 'warning',
+            inProgress: false,
+            percentComplete: 100,
             startTime: currentTime - (22 * 60 * 60 * 1000),
-            endTime: currentTime - (24 * 60 * 60 * 1000),
-            timeStamp: currentTime - (24 * 60 * 60 * 1000)
-          }
-        ]
-      },
-      {
-        notificationType: 'event',
-        heading: "Events",
-        unreadCount: 0,
-        notifications: [
-          {
-            unread: false,
+            endTime: currentTime - (24 * 60 * 60 * 1000)
+          },
+          timeStamp: currentTime - (24 * 60 * 60 * 1000)
+        }
+      ]
+    };
+
+
+    this.events = {
+      notificationType: 'event',
+      heading: "Events",
+      unreadCount: 0,
+      notifications: [
+        {
+          id: 2001,
+          unread: false,
+          data: {
             message: '2 Servers with RHEL 7.2 were retired',
-            status: 'info',
-            timeStamp: currentTime - (1 * 60 * 60 * 1000)
+            status: 'info'
           },
-          {
-            unread: false,
+          timeStamp: currentTime - (1 * 60 * 60 * 1000)
+        },
+        {
+          id: 2002,
+          unread: false,
+          data: {
             message: 'Request denied for provisioning a server',
-            status: 'error',
-            timeStamp: currentTime - (2 * 60 * 60 * 1000)
+            status: 'error'
           },
-          {
-            unread: false,
+          timeStamp: currentTime - (2 * 60 * 60 * 1000)
+        },
+        {
+          id: 2003,
+          unread: false,
+          data: {
             message: '2 Servers with RHEL 7.2 were edited',
-            status: 'info',
-            timeStamp: currentTime - (10 * 60 * 60 * 1000)
+            status: 'info'
           },
-          {
-            unread: false,
+          timeStamp: currentTime - (10 * 60 * 60 * 1000)
+        },
+        {
+          id: 2004,
+          unread: false,
+          data: {
             message: 'Request create for provisioning a server',
-            status: 'info',
-            timeStamp: currentTime - (12 * 60 * 60 * 1000)
+            status: 'info'
           },
-          {
-            unread: false,
+          timeStamp: currentTime - (12 * 60 * 60 * 1000)
+        },
+        {
+          id: 2005,
+          unread: false,
+          data: {
             message: '2 Servers with RHEL 7.2 will retire in 10 days',
-            status: 'warning',
-            timeStamp: currentTime - ((24 * 10 + 1) * 60 * 60 * 1000)
+            status: 'warning'
           },
-          {
-            unread: false,
+          timeStamp: currentTime - ((24 * 10 + 1) * 60 * 60 * 1000)
+        },
+        {
+          id: 2006,
+          unread: false,
+          data: {
             message: '2 Servers with RHEL 7.2 were scheduled to be retired in 14 days',
-            status: 'info',
-            timeStamp: currentTime - ((24 * 14 + 1) * 60 * 60 * 1000)
+            status: 'info'
           },
-          {
-            unread: false,
+          timeStamp: currentTime - ((24 * 14 + 1) * 60 * 60 * 1000)
+        },
+        {
+          id: 2007,
+          unread: false,
+          data: {
             message: 'Request to provision a server succeeded',
-            status: 'success',
-            timeStamp: currentTime - ((24 * 16 - 5) * 60 * 60 * 1000)
-          }
-        ]
-      }
-    ];
+            status: 'success'
+          },
+          timeStamp: currentTime - ((24 * 16 - 5) * 60 * 60 * 1000)
+        }
+      ]
+    };
+
+    this.notificationGroups = [this.tasks, this.events];
+    updateUnreadCount(this.tasks);
+    updateUnreadCount(this.events);
 
     this.toastNotifications = [];
 
@@ -130,16 +154,16 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
       }
     };
 
-    this.addNotification = function (notificationType, message, status) {
+    this.addNotification = function (notificationType, status, message, notificationData, id) {
       var newNotification = {
+        id: id,
+        notificationType: notificationType,
         unread: true,
-        header: notificationHeadingMap[notificationType],
-        message: message,
         status: status,
-        persistent: true,
+        message: message,
+        data: notificationData,
         timeStamp: (new Date()).getTime()
       };
-
       var group = this.notificationGroups.find(function (notificationGroup) {
         return notificationGroup.notificationType === notificationType;
       });
@@ -152,8 +176,42 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
         }
         updateUnreadCount(group);
       }
-
       this.showToast(newNotification);
+    };
+
+    this.updateNotification = function (notificationType, status, message, notificationData, id, showToast) {
+      var notification;
+      var group = this.notificationGroups.find(function (notificationGroup) {
+        return notificationGroup.notificationType === notificationType;
+      });
+
+      if (group) {
+        notification = group.notifications.find(function (notification) {
+          return notification.id === id;
+        });
+
+        if (notification) {
+          if (showToast) {
+            notification.unread = true;
+          }
+          notification.status = status;
+          notification.message = message;
+          notification.data = notificationData;
+          notification.timeStamp = (new Date()).getTime();
+          updateUnreadCount(group);
+        }
+      }
+
+      if (showToast) {
+        if (!notification) {
+          notification = {
+            status: status,
+            message: message
+          };
+        }
+
+        this.showToast(notification);
+      }
     };
 
     this.setViewingToastNotification = function (notification, viewing) {
@@ -217,9 +275,7 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
 
       if (!group) {
         group = this.notificationGroups.find(function (nextGroup) {
-          return nextGroup.notifications.find(function (nextNotification) {
-            return nextNotification === notificationHeadingMap;
-          });
+          return notification.notificationType === nextGroup.notificationType;
         });
       }
 

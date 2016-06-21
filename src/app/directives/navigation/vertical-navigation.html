@@ -7,9 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">
-        <img class="navbar-brand-icon" src="{{brandSrc}}" alt="{{brandAlt}}"/>
-      </a>
+      <span class="navbar-brand">
+        <img class="navbar-brand-icon" ng-if="brandSrc" ng-src="brandSrc" alt="{{brandAlt}}"/>
+        <span class="navbar-brand-txt" ng-if="!brandSrc">{{brandAlt}}</span>
+      </span>
     </div>
     <nav class="collapse navbar-collapse" ng-transclude></nav>
     <div class="nav-pf-vertical nav-pf-vertical-with-tertiary-nav"

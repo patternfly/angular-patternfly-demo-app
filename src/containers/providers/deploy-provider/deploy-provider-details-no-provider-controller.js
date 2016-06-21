@@ -54,7 +54,7 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
       var modalInstance = $modal.open({
         animation: true,
         backdrop: 'static',
-        templateUrl: 'containers/providers/deploy-provider/add-host-dialog.html',
+        templateUrl: 'src/containers/providers/deploy-provider/add-host-dialog.html',
         controller: 'containers.addHostDialogController',
         size: 'md'
       });

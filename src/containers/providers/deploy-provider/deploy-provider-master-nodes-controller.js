@@ -110,7 +110,7 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
 
 
     $scope.deploymentDetailsMasterNodesComplete = false;
-    $scope.reviewTemplate = "/containers/providers/deploy-provider/deploy-provider-master-nodes-review.html";
+    $scope.reviewTemplate = "src/containers/providers/deploy-provider/deploy-provider-master-nodes-review.html";
     $scope.data.deploymentKey = '';
     $scope.data.deploymentUsername = '';
 

@@ -111,7 +111,7 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
       };
 
       $scope.deploymentDetailsAuthSettingsComplete = false;
-      $scope.reviewTemplate = "/containers/providers/deploy-provider/deploy-provider-auth-settings-review.html";
+      $scope.reviewTemplate = "src/containers/providers/deploy-provider/deploy-provider-auth-settings-review.html";
       $scope.onShow = function () {
         if (firstShow) {
           $scope.data.authentication.htPassword = {

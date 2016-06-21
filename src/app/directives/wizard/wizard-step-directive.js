@@ -230,7 +230,7 @@ angular.module('apf.wizard').directive('apfWizardStep', function () {
           if (step) {
             step.selected = true;
 
-            if (angular.isfunction ($scope.selectedStep.onShow)) {
+            if (angular.isFunction ($scope.selectedStep.onShow)) {
               $scope.selectedStep.onShow();
             }
 
@@ -322,7 +322,7 @@ angular.module('apf.wizard').directive('apfWizardStep', function () {
         var index = stepIdx($scope.selectedStep);
 
         // Check if callback is a function
-        if (angular.isfunction (callback)) {
+        if (angular.isFunction (callback)) {
           if (callback($scope.selectedStep)) {
             if (index === enabledSteps.length - 1) {
               return false;
@@ -354,7 +354,7 @@ angular.module('apf.wizard').directive('apfWizardStep', function () {
         var goPrev = false;
 
         // Check if callback is a function
-        if (angular.isfunction (callback)) {
+        if (angular.isFunction (callback)) {
           if (callback($scope.selectedStep)) {
             if (index !== 0) {
               $scope.goTo($scope.getEnabledSteps()[index - 1]);
@@ -371,8 +371,6 @@ angular.module('apf.wizard').directive('apfWizardStep', function () {
           $timeout(function () {
             if (!$scope.selectedStep) {
               $scope.goTo($scope.getEnabledSteps()[0]);
-            } else if ($scope.selectedStep.onShow) {
-              $scope.selectedStep.onShow();
             }
           }, 10);
         };

@@ -41,7 +41,7 @@ angular.module('apf.containers.providersModule').controller('containers.provider
       var modalInstance = $modal.open({
         animation: true,
         backdrop: 'static',
-        templateUrl: 'containers/providers/deploy-provider/deploy-provider.html',
+        templateUrl: 'src/containers/providers/deploy-provider/deploy-provider.html',
         controller: 'containers.deployProviderController',
         size: 'lg'
       });

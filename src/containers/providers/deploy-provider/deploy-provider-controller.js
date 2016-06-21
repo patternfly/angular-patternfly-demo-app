@@ -1,6 +1,6 @@
 angular.module('apf.containers.providersModule').controller('containers.deployProviderController',
-  ['$rootScope', '$scope', '$timeout',
-  function ($rootScope, $scope, $timeout) {
+  ['$rootScope', '$scope', '$timeout', 'apf.notificationService',
+  function ($rootScope, $scope, $timeout, notificationService) {
     'use strict';
 
     var initializeDeploymentWizard = function () {
@@ -72,17 +72,42 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
     };
 
     var startDeploy = function () {
-      $scope.deployInProgress = true;
-      $timeout(function () {
-        if ($scope.deployInProgress) {
-          $scope.deployInProgress = false;
-          $scope.deployComplete = true;
+      var notificationData = {
+        id: Math.floor((Math.random() * 100000) + 1),
+        status: 'info',
+        message: "New provider deployment '" + $scope.data.providerName + "' is in progress.",
+        inProgress: true,
+        percentComplete: 0,
+        startTime: (new Date()).getTime(),
+        endTime: undefined
+      };
 
-          $scope.deploySuccess = true;
-          $scope.deployFailed = true;
-          $scope.deployFailureMessage = "An unknown error has occurred.";
+      var count = 0;
+      var updateProgress = function () {
+        var showToast = false;
+
+        count++;
+        if (count < 10) {
+          notificationData.percentComplete = count * 10;
+        } else {
+          notificationData.status = 'success';
+          notificationData.message = "New provider '" + $scope.data.providerName + "' deployed successfully.";
+          notificationData.inProgress = false;
+          notificationData.percentComplete = 100;
+          notificationData.endTime = (new Date()).getTime();
+          showToast = true;
         }
-      }, 5000);
+
+        notificationService.updateNotification('task', notificationData.status, notificationData.message, notificationData, notificationData.id, showToast);
+
+        if (count < 10) {
+          $timeout(updateProgress, 10000);
+        }
+      };
+
+      $scope.deployInProgress = true;
+      notificationService.addNotification('task', notificationData.status, notificationData.message, notificationData, notificationData.id);
+      $timeout(updateProgress, 10000);
     };
 
     $scope.data = {};
@@ -115,9 +140,7 @@ angular.module('apf.containers.providersModule').controller('containers.deployPr
     });
 
     $scope.cancelDeploymentWizard = function () {
-      if (!$scope.deployInProgress) {
-        $rootScope.$emit('deployProvider.done', 'cancel');
-      }
+      $rootScope.$emit('deployProvider.done', 'cancel');
     };
 
     $scope.finishedWizard = function () {
