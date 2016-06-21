@@ -10,9 +10,19 @@
         tooltip-popup-delay="500" tooltip-placement="bottom" tooltip="{{notification.data.message}}">
     {{notification.data.message}}
   </span>
-  <div class="drawer-pf-notification-info" ng-click="customScope.markRead(notification, notificationGroup)">
+  <div ng-if="!notification.data.inProgress" class="drawer-pf-notification-info" ng-click="customScope.markRead(notification, notificationGroup)">
     <span class="date">{{notification.timeStamp | date:'MM/dd/yyyy'}}</span>
     <span class="time">{{notification.timeStamp | date:'h:mm:ss a'}}</span>
+  </div>
+  <div ng-if="notification.data.inProgress" class="mini-progress clearfix">
+    <span class="time">{{notification.timeStamp | date:'h:mm:ss a'}}</span>
+    <div class="mini-progress-area">
+      <div class="progress">
+        <span class="progress-bar progress-bar-info"
+              ng-style="{width: notification.data.percentComplete + '%'}" tooltip="{{notification.data.percentComplete}}% Complete">
+        </span>
+      </div>
+    </div>
   </div>
 </div>
 <div ng-if="customScope.drawerExpanded" class="container-fluid expanded-notification" ng-click="customScope.markNotificationRead(notification, notificationGroup)">
@@ -31,8 +41,10 @@
         <span class="date">{{notification.data.startTime | date:'MM/dd/yyyy'}}</span>
         <span class="time">{{notification.data.startTime | date:'h:mm:ss a'}}</span>
       </div>
-      <div ng-if="notification.data.inProgress">
-
+      <div ng-if="notification.data.inProgress" class="progress">
+        <div class="progress-bar progress-bar-info"
+             ng-style="{width: notification.data.percentComplete + '%'}" tooltip="{{notification.data.percentComplete}}% Complete">
+        </div>
       </div>
     </div>
     <div class="col-md-4 col-sm-3" ng-if="notificationGroup.notificationType == 'task'">

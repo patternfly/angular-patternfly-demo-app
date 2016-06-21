@@ -22,6 +22,34 @@
   margin-top: -20px;
 }
 
+.drawer-pf-notification {
+  .progress {
+    background-color: $color-pf-white;
+    border-color: $color-pf-black-900;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1px rgba(3,3,3,1);
+    height: 10px;
+    margin-bottom: 0px;
+    .progress-bar-info {
+      background-color: $color-pf-blue-400;
+    }
+  }
+
+  .mini-progress {
+    .time {
+      left: 40px;
+      position: absolute;
+      width: 65px;
+    }
+    .mini-progress-area {
+      left: 115px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      position: absolute;
+      right: 55px;
+    }
+  }
+}
 .apf-notificaton-list {
   position: absolute;
   right: 15px;
@@ -31,20 +59,20 @@
 }
 
 .apf-notification-drawer-expanded .drawer-pf {
-  width: inherit;
   left: 220px;
+  width: inherit;
 }
 
 .drawer-pf .drawer-pf-title .drawer-pf-toggle-expand {
   cursor: pointer;
   left: 0;
-  position: absolute;
   padding: 2px 5px;
+  position: absolute;
 }
 
 .drawer-pf .drawer-pf-title .drawer-pf-toggle-expand:before {
-  font-family: "FontAwesome";
   content: "\f100";
+  font-family: "FontAwesome";
 }
 
 .drawer-pf .panel-counter.sub-heading {
@@ -65,9 +93,9 @@
     }
 
     .dropdown-kebab-pf {
+      margin-top: -5px;
       position: absolute;
       right: 10px;
-      margin-top: -5px;
     }
   }
 }
@@ -85,10 +113,10 @@
 
   .drawer-pf {
     .apf-notification-message {
+      overflow: hidden;
       padding-left: 12px;
       text-overflow: ellipsis;
       white-space: nowrap;
-      overflow: hidden;
     }
 
     /* This is temporary until the fix is in Angular-Patternfly */
@@ -151,11 +179,11 @@
   }
 
   .blank-slate-pf {
-    position: absolute;
-    top: 0;
     bottom: 0;
     margin: 0 0 0 -20px;
     padding-top: 90px;
+    position: absolute;
+    top: 0;
   }
 }
 
@@ -180,10 +208,10 @@
 
     .provider-icon {
       font-size: 22px;
+      opacity: .9;
+      padding-right: 5px;
       position: relative;
       top: 5px;
-      padding-right: 5px;
-      opacity: .9;
 
       &:hover {
         opacity: 1;
@@ -193,10 +221,10 @@
 
   .provider-icon-large {
     font-size: 100px;
-    position: relative;
     padding-bottom: 4px;
-    width: 100%;
+    position: relative;
     text-align: center;
+    width: 100%;
   }
 }
 
@@ -213,17 +241,17 @@
 }
 
 .aggregate-status-card-title-image {
-  height: 15px;
-  width: 15px;
   display: inline-block;
+  height: 15px;
   margin-right: 7px;
+  width: 15px;
 }
 
 .aggregate-status-card-notification-image {
-  height: 18px;
-  width: 18px;
   display: inline-block;
+  height: 18px;
   margin-right: 7px;
+  width: 18px;
 }
 
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {
@@ -257,18 +285,18 @@
   }
 
   .progress {
-    margin-top: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   .card-title .apf-icon-label {
-    padding-left: 5px;
     padding-bottom: 15px;
+    padding-left: 5px;
   }
 
   .card-row {
-    padding: 0;
     margin: 0;
+    padding: 0;
 
     .card-view-pf {
       overflow: visible;
@@ -276,26 +304,26 @@
   }
 
   .card-column {
-    width: 50%;
     float: left;
+    width: 50%;
   }
 
   .status-object {
-    text-align: left;
     margin: 5px 20px;
+    text-align: left;
 
     .pficon {
+      color: $color-pf-blue;
       font-size: 20px;
       width: 26px;
-      color: $color-pf-blue;
     }
     .status-count {
-      font-size: 18px;
       color: $color-pf-black-700;
+      font-size: 18px;
     }
     .status-text {
-      font-size: 12px;
       color: $color-pf-black-700;
+      font-size: 12px;
     }
   }
 
@@ -311,27 +339,26 @@
   .apf-label {
     color: $color-pf-black-700;
     font-size: 12px;
-    white-space: nowrap;
     padding-left: 5px;
+    white-space: nowrap;
   }
 
   .apf-label.apf-title {
-    float: left;
     color: $color-pf-black-700;
+    float: left;
     font-size: 13px;
     font-weight: 700;
   }
 
   .apf-icon-label.apf-title {
-    float: left;
     color: $color-pf-black-700;
+    float: left;
     font-size: 13px;
     font-weight: 700;
   }
 
   .apf-label.apf-value {
     float: left;
-    text-align: right;
     text-align: right;
     width: 32px;
   }
@@ -368,9 +395,8 @@
   .list-group-item {
     .apf-column {
       float: left;
-      padding: 5px 5px;
       margin-right: 10px;
-
+      padding: 5px 5px;
     }
     .apf-object-column {
       padding-top: 1px !important;
@@ -383,9 +409,9 @@
     .apf-icon-label {
       color: $color-pf-black-700;
       font-size: 18px;
+      padding-left: 5px;
       vertical-align: middle;
       white-space: nowrap;
-      padding-left: 5px;
     }
     .pficon.apf-icon-label {
       color: $color-pf-blue;
@@ -394,27 +420,26 @@
     .apf-label {
       color: $color-pf-black-700;
       font-size: 12px;
-      white-space: nowrap;
       padding-left: 5px;
+      white-space: nowrap;
     }
 
     .apf-label.apf-title {
-      float: left;
       color: $color-pf-black-700;
+      float: left;
       font-size: 13px;
       font-weight: 700;
     }
 
     .apf-icon-label.apf-title {
-      float: left;
       color: $color-pf-black-700;
+      float: left;
       font-size: 13px;
       font-weight: 700;
     }
 
     .apf-label.apf-value {
       float: left;
-      text-align: right;
       text-align: right;
       width: 32px;
     }
@@ -432,7 +457,6 @@
         text-align: right;
       }
     }
-
   }
 
   .provider-column {
@@ -481,8 +505,8 @@
   }
 
   .containers-list {
-    margin-top: 10px;
     border: 1px solid $color-pf-black-300;
+    margin-top: 10px;
     .toolbar-pf {
       padding-bottom: 10px;
     }
@@ -497,8 +521,8 @@
         width: 105px;
       }
       .apf-value {
-        width: 30px;
         text-align: right;
+        width: 30px;
       }
     }
     .memory-usage-column {
@@ -520,8 +544,8 @@
   overflow-y: auto;
 
   .metric-row {
-    padding: 10px 5px;
     margin: 0;
+    padding: 10px 5px;
   }
 
   .metric-row:first-of-type {
@@ -537,12 +561,11 @@
   }
 
   .metric-title {
-    text-align: right;
-    font-weight: 700;
     float: left;
-    width: 175px;
+    font-weight: 700;
     padding: 0 5px;
-
+    text-align: right;
+    width: 175px;
   }
   .metric-value {
     float: left;
@@ -627,8 +650,8 @@
 ****/
 
 .icon-atomic:before {
-  content: "\e62d";
   color: $color-pf-blue;
+  content: "\e62d";
 }
 
 .apf-deploy-provider-wizard {
@@ -637,16 +660,16 @@
     margin-top: 10px;
 
     > a {
-      margin-left: 10px;
       cursor: pointer;
+      margin-left: 10px;
     }
   }
 
   a {
     &.disabled {
-      pointer-events: none;
-      cursor: default;
       color: $color-pf-black-200;
+      cursor: default;
+      pointer-events: none;
     }
   }
 
@@ -692,11 +715,11 @@
   }
 
   .apf-input-label-class {
-    width: 95px;
-    padding-right: 10px;
-    padding-left: 20px;
     float: left;
+    padding-left: 20px;
+    padding-right: 10px;
     text-align: right;
+    width: 95px;
 
     &.apf-input-label-class-lg {
       width: 150px;
@@ -728,9 +751,9 @@
   }
 
   .apf-input-no-label-class {
+    float: left;
     padding-right: 10px;
     padding-left: 20px;
-    float: left;
     width: 0;
   }
 
@@ -739,8 +762,8 @@
   }
 
   .apf-input-checkbox-form {
-    padding-left: 55px;
     padding-bottom: 10px;
+    padding-left: 55px;
     .apf-checkbox-input-label {
       padding-right: 20px;
       input {
@@ -752,16 +775,16 @@
       }
     }
     .apf-input-label-class {
-      width: 130px;
       padding-left: 15px;
       padding-top: 3px;
       text-align: left;
       vertical-align: middle;
+      width: 130px;
     }
     .apf-checkbox-input {
+      background-image: none;
       border: 1px solid $color-pf-black-400;
       border-radius: 1px;
-      background-image: none;
       width: 300px;
       &[disabled] {
         -webkit-box-shadow: none;
@@ -775,21 +798,21 @@
     }
   }
   .apf-input-class {
-    width: 200px;
-    padding: 0 20px 0 10px;
     float: left;
+    padding: 0 20px 0 10px;
+    width: 200px;
   }
 
   .apf-radio-input-class {
-    width: 200px;
-    padding: 0 20px 0 30px;
     float: left;
+    padding: 0 20px 0 30px;
+    width: 200px;
   }
 
   .apf-touchspin-input-class {
-    width: 110px;
-    padding: 0 20px 0 10px;
     float: left;
+    padding: 0 20px 0 10px;
+    width: 110px;
 
     .form-control {
       height: 24px;
@@ -880,21 +903,21 @@
         color: $link-color;
         font-size: 12px;
         margin-left: -20px;
-        marging-top: 10px;
+        margin-top: 10px;
         padding: 0;
       }
       .role-column {
         .label {
           border: none;
           border-radius: 5px;
+          color: $color-pf-white;
           cursor: default;
           display: inline-block;
+          font-weight: 600;
           margin-right: 5px;
           min-width: auto;
           padding-top: 4px;
           width: auto !important;
-          color: $color-pf-white;
-          font-weight: 600;
 
           &:focus {
             outline: none;
@@ -915,15 +938,15 @@
 
         .add-roles-list {
           .label.add-role-item {
+            background-color: $color-pf-blue-300;
+            color: $color-pf-white;
             cursor: pointer;
             display: block;
+            font-weight: 600;
             margin-top: 5px;
             min-width: auto;
             text-align: left;
             width: auto !important;
-            color: $color-pf-white;
-            background-color: $color-pf-blue-300;
-            font-weight: 600;
             &[disabled] {
               background-color: $color-pf-black-300;
               color: $color-pf-black-600;
@@ -947,16 +970,15 @@
     }
     .table {
       border: none;
-      width: calc(100% + 3px);
       margin-left: -1px;
-
+      width: calc(100% + 3px);
     }
 
     .table-footer {
       background-color: $color-pf-black-100;
-      width: 100%;
       height: 28px;
       padding-top: 5px;
+      width: 100%;
 
       .badge {
         background: transparent;
@@ -1004,8 +1026,8 @@
   }
 
   .apf-review-label-class {
-    padding-right: 10px;
     float: left;
+    padding-right: 10px;
   }
 
   .apf-review-edit-item {
@@ -1032,9 +1054,9 @@
   }
   .apf-review-button-panel {
     float: right;
-    width: 100%;
-    padding: 10px 0;
     margin-top: 0;
+    padding: 10px 0;
+    width: 100%;
   }
   .apf-wizard-review-list {
     li {
