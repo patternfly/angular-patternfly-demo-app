@@ -135,6 +135,14 @@ angular.module('apf.userAdminModule').controller('userAdmin.usersController',
       sortType: 'alpha'
     };
 
+    var handleSelectionChange = function (items) {
+      var itemsSelected = $scope.users.find(function (item) {
+        return item.selected;
+      });
+      $scope.actionsConfig.primaryActions[1].isDisabled = !itemsSelected;
+      $scope.actionsConfig.primaryActions[2].isDisabled = !itemsSelected;
+    };
+
     $scope.listId = 'usersList';
 
     $scope.columns = [
@@ -153,9 +161,28 @@ angular.module('apf.userAdminModule').controller('userAdmin.usersController',
       onSortChange: sortChange
     };
 
+    $scope.actionsConfig = {
+      primaryActions: [
+        {
+          name: "Add New User",
+          title: "Add a new user"
+        },
+        {
+          name: "Edit Users",
+          title: "Edit selected users",
+          isDisabled: true
+        },
+        {
+          name: "Remove Users",
+          title: "Remove selected users",
+          isDisabled: true
+        }
+      ]
+    };
     $scope.toolbarConfig = {
       filterConfig: filterConfig,
-      sortConfig: $scope.sortConfig
+      sortConfig: $scope.sortConfig,
+      actionsConfig: $scope.actionsConfig
     };
 
     $scope.listConfig = {
@@ -163,6 +190,7 @@ angular.module('apf.userAdminModule').controller('userAdmin.usersController',
       multiSelect: false,
       selectionMatchProp: 'name',
       selectedItems: [],
+      onCheckBoxChange: handleSelectionChange,
       checkDisabled: false,
       rowHeight: 64
     };
