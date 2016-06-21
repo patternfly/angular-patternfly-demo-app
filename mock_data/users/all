@@ -67,7 +67,7 @@
        {
           "uuid": "100009",
           "username": "hosimpso",
-          "name": "Homer Simpsom",
+          "name": "Homer Simpson",
           "email" : "hosimpso@acme.com",
           "role" : "Administrator",
           "groupsCount": 1

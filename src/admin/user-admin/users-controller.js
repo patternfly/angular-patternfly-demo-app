@@ -1,6 +1,6 @@
 angular.module('apf.userAdminModule').controller('userAdmin.usersController',
-  ['$rootScope', '$scope', '$resource', 'ListUtils', 'ColumnsConfig',
-  function ($rootScope, $scope, $resource, listUtils, columnsConfig) {
+  ['$rootScope', '$scope', '$resource', 'ListUtils', 'ColumnsConfig', 'apf.notificationService', '$timeout',
+  function ($rootScope, $scope, $resource, listUtils, columnsConfig, notificationService, $timeout) {
     'use strict';
 
     var nameColumn = {
@@ -135,12 +135,34 @@ angular.module('apf.userAdminModule').controller('userAdmin.usersController',
       sortType: 'alpha'
     };
 
-    var handleSelectionChange = function (items) {
+    var handleSelectionChange = function () {
       var itemsSelected = $scope.users.find(function (item) {
         return item.selected;
       });
       $scope.actionsConfig.primaryActions[1].isDisabled = !itemsSelected;
       $scope.actionsConfig.primaryActions[2].isDisabled = !itemsSelected;
+    };
+
+    var deleteUsers = function () {
+      var index;
+      var notificationData;
+
+      $scope.users.forEach(function (user) {
+        if (user.selected) {
+          notificationData = {
+            status: 'warning',
+            message: 'User "' + user.name + '" had been deleted.'
+          };
+
+          notificationService.addNotification('event', notificationData.status, notificationData.message, notificationData);
+          index = $scope.allUsers.indexOf(user);
+          if (index > -1) {
+            $scope.allUsers.splice(index, 1);
+          }
+        }
+      });
+      $scope.users = listUtils.applyFilters($scope.allUsers, $scope.toolbarConfig.filterConfig);
+      handleSelectionChange();
     };
 
     $scope.listId = 'usersList';
@@ -175,7 +197,8 @@ angular.module('apf.userAdminModule').controller('userAdmin.usersController',
         {
           name: "Remove Users",
           title: "Remove selected users",
-          isDisabled: true
+          isDisabled: true,
+          actionFn: deleteUsers,
         }
       ]
     };
