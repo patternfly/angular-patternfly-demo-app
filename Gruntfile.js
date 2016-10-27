@@ -51,13 +51,13 @@ module.exports = function (grunt) {
     watch:    {
       compass: {
         files: 'src/styles/scss/*.scss',
-        tasks: ['compass'],
+        tasks: ['compass', 'copy:styles'],
         options: {
           livereload: 37830
         }
       },
       all: {
-        files: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.html', 'styles/**/*.css'],
+        files: ['Gruntfile.js', 'template.html', 'src/**/*.js', 'src/**/*.html', 'styles/**/*.css'],
         tasks: ['build'],
         options: {
           livereload: 37830

@@ -24,52 +24,53 @@
 
 </head>
 <body id="pf-app" class="pf-body apf-body ng-cloak">
-  <div apf-vertical-navigation items="navigationItems" brand-alt="UNIFIED MANAGEMENT EXPERIENCE" ng-controller="apf.appController">
-    <div ng-controller="apf.navBarController">
-      <ul class="nav navbar-nav">
-        <li><a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right navbar-iconic">
-        <li class="dropdown">
-          <a class="nav-item-iconic" id="notifications" ng-click="toggleNotificationDrawer()">
-            <span title="Notifications" class="fa" ng-class="{'fa-bell': newNotifications === true, 'fa-bell-o': newNotifications === false}"></span>
-          </a>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span title="Help" class="fa pficon-help"></span>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Help</a></li>
-            <li><a href="#">About</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span title="Username" class="fa pficon-user"></span>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li><a href="#">Preferences</a></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div ng-controller="apf.notificationsController" ng-class="{'apf-notification-drawer-expanded': customScope.drawerExpanded}">
-      <div class="apf-notificaton-list" data-ng-show="toastNotifications.length > 0">
-        <div ng-repeat="notification in toastNotifications">
-          <div apf-toast-notification notification="notification"
-               notification-index="$index"
-               handle-enter="handleEnter(notification)" handle-leave="handleLeave(notification)">
-          </div>
-        </div>
+  <div ng-controller="apf.appController">
+    <div pf-vertical-navigation items="navigationItems" brand-alt="UNIFIED MANAGEMENT EXPERIENCE">
+      <div ng-controller="apf.navBarController">
+        <ul class="nav navbar-nav">
+          <li><a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-iconic">
+          <li class="dropdown">
+            <a class="nav-item-iconic" id="notifications" ng-click="toggleNotificationDrawer()">
+              <span title="Notifications" class="fa" ng-class="{'fa-bell': newNotifications === true, 'fa-bell-o': newNotifications === false}"></span>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span title="Help" class="fa pficon-help"></span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Help</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span title="Username" class="fa pficon-user"></span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li><a href="#">Preferences</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-      <div pf-notification-drawer drawer-hidden="hideDrawer" notification-groups="groups"
-           title-include="{{titleHtml}}" heading-include="{{headingHTML}}" subheading-include="{{subHeadingHTML}}"
-           notification-body-include="{{notificationHTML}}" notification-footer-include="{{notificationFooterHTML}}"
-           custom-scope="customScope">
+      <div ng-controller="apf.notificationsController">
+        <div pf-toast-notification-list notifications="toastNotifications" update-viewing="updateViewingToast"></div>
+        <div pf-notification-drawer
+             drawer-hidden="hideDrawer"
+             allow-expand="true"
+             notification-groups="groups"
+             drawer-title="Notifications"
+             heading-include="{{headingHTML}}"
+             subheading-include="{{subHeadingHTML}}"
+             notification-body-include="{{notificationHTML}}"
+             notification-footer-include="{{notificationFooterHTML}}"
+             custom-scope="customScope">
+        </div>
       </div>
     </div>
   </div>

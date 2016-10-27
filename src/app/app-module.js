@@ -9,8 +9,6 @@ angular.module ('apf.appModule', [
   'apf.util',
   'apf.charts',
   'apf.card',
-  'apf.navigation',
-  'apf.wizard',
   'apf.dashboardModule',
   'apf.cloudsModule',
   'apf.containersModule',

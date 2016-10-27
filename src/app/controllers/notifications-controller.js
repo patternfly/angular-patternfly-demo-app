@@ -24,6 +24,10 @@ angular.module('apf.appModule').controller( 'apf.notificationsController', ['$sc
     });
     $scope.toastNotifications = notificationService.toastNotifications;
 
+    $scope.updateViewingToast = function (viewing, toastNotification) {
+      notificationService.setViewingToastNotification(toastNotification, viewing);
+    };
+
     $scope.customScope = {
       drawerExpanded: false,
       getNotficationStatusIconClass: function (notification) {

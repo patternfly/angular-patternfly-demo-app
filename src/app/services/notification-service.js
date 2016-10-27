@@ -142,6 +142,7 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
 
     this.showToast = function (notification) {
       notification.show = true;
+      console.log("Adding toast notification");
       this.toastNotifications.push(notification);
 
       if (notification.status !== 'danger' && notification.status !== 'error') {
@@ -160,6 +161,7 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
         notificationType: notificationType,
         unread: true,
         status: status,
+        type: status,
         message: message,
         data: notificationData,
         timeStamp: (new Date()).getTime()
@@ -195,6 +197,7 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
             notification.unread = true;
           }
           notification.status = status;
+          notification.type = status;
           notification.message = message;
           notification.data = notificationData;
           notification.timeStamp = (new Date()).getTime();
@@ -206,6 +209,7 @@ angular.module('apf.appModule').service( 'apf.notificationService', ['Notificati
         if (!notification) {
           notification = {
             status: status,
+            type: status,
             message: message
           };
         }

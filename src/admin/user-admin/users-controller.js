@@ -154,6 +154,7 @@ angular.module('apf.userAdminModule').controller('userAdmin.usersController',
             message: 'User "' + user.name + '" had been deleted.'
           };
 
+          console.log("Adding notification");
           notificationService.addNotification('event', notificationData.status, notificationData.message, notificationData);
           index = $scope.allUsers.indexOf(user);
           if (index > -1) {
